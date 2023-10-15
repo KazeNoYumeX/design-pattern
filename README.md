@@ -1,4 +1,4 @@
-# 軟體設計模式練習
+# Showdown 撲克牌比大小遊戲
 
 ## System Requirements
 
@@ -6,10 +6,15 @@ The following are required to function properly.
 
 * PHP Version：PHP 8.1.x
 
-### Run dev
+### Composer install
 
 ```bash
-     php -S 127.0.0.1:8000 -t public/
+    composer install
+```
+
+### Run Showdown
+```bash
+     php .\public\Main.php
 ```
 
 ### Run pest test
