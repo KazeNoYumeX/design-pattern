@@ -4,6 +4,7 @@ namespace App\Players;
 
 use App\Card;
 use App\Deck;
+use App\ExchangeHands;
 use App\Hand;
 use App\Showdown;
 
@@ -73,5 +74,28 @@ abstract class Player
     public function showCard(Card $card): void
     {
         $this->showedCard = $card;
+    }
+
+    public function setExchangePermission(bool $bool): void
+    {
+        $this->exchangePermission = $bool;
+    }
+
+    public function checkChangeHands(): Player
+    {
+        $targetPlayer = $this;
+        $exchangeHands = $this->showdown->getExchangeHands();
+        if (count($exchangeHands) !== 0) {
+            foreach ($exchangeHands as $exchangeHand) {
+                /** @var ExchangeHands $exchangeHand */
+                if ($exchangeHand->getTrader() === $targetPlayer) {
+                    $targetPlayer = $exchangeHand->getCounterparty();
+                } elseif ($exchangeHand->getCounterparty() === $targetPlayer) {
+                    $targetPlayer = $exchangeHand->getTrader();
+                }
+            }
+        }
+
+        return $targetPlayer;
     }
 }

@@ -11,9 +11,12 @@ class Showdown
 
     private int $round = 1;
 
+    protected array $exchangeHands;
+
     public function __construct(
         private readonly Deck $deck
     ) {
+        $this->exchangeHands = [];
     }
 
     public function startGame(int $numRealPlayers, int $numAIPlayers): void
@@ -120,6 +123,18 @@ class Showdown
 
     public function endRound(): void
     {
+        // Countdown exchange hands
+        $exchangeHands = $this->getExchangeHands();
+        if (count($exchangeHands) !== 0) {
+            foreach ($exchangeHands as $exchangeHand) {
+                /** @var ExchangeHands $exchangeHand */
+                $exchangeHand->countdown();
+                if ($exchangeHand->getDuration() === 0) {
+                    $this->removeExchangeHands($exchangeHand);
+                }
+            }
+        }
+
         echo "第{$this->round}回合結束\n";
         $this->round++;
         $this->round > 13 ? $this->endGame() : $this->startRound();
@@ -148,5 +163,22 @@ class Showdown
     public function getPlayers(): array
     {
         return $this->players;
+    }
+
+    public function getExchangeHands(): array
+    {
+        return $this->exchangeHands;
+    }
+
+    public function addExchangeHands(ExchangeHands $exchangeHands): void
+    {
+        $this->exchangeHands[] = $exchangeHands;
+    }
+
+    public function removeExchangeHands(ExchangeHands $exchangeHands): void
+    {
+        $filtered = array_filter($this->exchangeHands,
+            fn ($exchangeHand) => $exchangeHand !== $exchangeHands);
+        $this->exchangeHands = array_values($filtered);
     }
 }
