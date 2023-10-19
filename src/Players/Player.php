@@ -4,18 +4,28 @@ namespace App\Players;
 
 use App\Card;
 use App\Deck;
+use App\Hand;
+use App\Showdown;
 
 abstract class Player
 {
     protected string $name;
 
-    protected array $hand = [];
+    protected Hand $hand;
 
     protected int $point = 0;
 
     protected bool $exchangePermission = true;
 
     protected Card $showedCard;
+
+    protected Showdown $showdown;
+
+    public function __construct(Showdown $showdown)
+    {
+        $this->hand = new Hand();
+        $this->showdown = $showdown;
+    }
 
     abstract public function chooseAction(): void;
 
@@ -41,12 +51,12 @@ abstract class Player
 
     public function getHand(): array
     {
-        return $this->hand;
+        return $this->hand->cards;
     }
 
     public function setHand(Card $card): void
     {
-        $this->hand[] = $card;
+        $this->hand->cards[] = $card;
     }
 
     public function drawCard(Deck $deck): void

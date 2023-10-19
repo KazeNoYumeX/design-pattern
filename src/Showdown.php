@@ -4,7 +4,6 @@ namespace App;
 
 use App\Players\AIPlayer;
 use App\Players\HumanPlayer;
-use Faker\Factory;
 
 class Showdown
 {
@@ -24,21 +23,17 @@ class Showdown
 
         $playerNum = 1;
         for ($i = 0; $i < $numRealPlayers; $i++) {
-            $player = new HumanPlayer();
+            $player = new HumanPlayer($this);
             echo "請輸入玩家{$playerNum}名稱：";
-            $name = fgets(STDIN);
-            $name = trim($name);
-            $player->setName($name);
+            $player->nameHimself();
             $this->addPlayer($player);
             $playerNum++;
         }
 
         if ($numAIPlayers != 0) {
-            $faker = Factory::create();
-
             for ($i = 0; $i < $numAIPlayers; $i++) {
-                $player = new AIPlayer();
-                $player->setName($faker->lastName);
+                $player = new AIPlayer($this);
+                $player->nameHimself();
                 $this->addPlayer($player);
             }
         }
@@ -148,5 +143,10 @@ class Showdown
         // Winner may be more than one
         return array_filter($this->players,
             fn ($player) => $player->getPoint() === $max);
+    }
+
+    public function getPlayers(): array
+    {
+        return $this->players;
     }
 }
