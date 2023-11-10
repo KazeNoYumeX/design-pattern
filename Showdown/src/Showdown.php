@@ -5,7 +5,6 @@ namespace App;
 use App\Players\AIPlayer;
 use App\Players\HumanPlayer;
 
-
 class Showdown
 {
     private array $players;
