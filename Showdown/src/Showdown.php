@@ -5,13 +5,14 @@ namespace App;
 use App\Players\AIPlayer;
 use App\Players\HumanPlayer;
 
+
 class Showdown
 {
     private array $players;
 
     private int $round = 1;
 
-    protected array $exchangeHands;
+    private array $exchangeHands;
 
     public function __construct(
         private readonly Deck $deck

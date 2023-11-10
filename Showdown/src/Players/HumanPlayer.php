@@ -29,7 +29,6 @@ class HumanPlayer extends Player
                 echo "\n";
 
                 $target = trim(fgets(STDIN));
-                var_dump($target);
 
                 // If target is empty or target is not in players list then choose action again
                 if (empty($players[$target]) || $players[$target]->getName() == $this->getName()) {
@@ -39,7 +38,7 @@ class HumanPlayer extends Player
                     return;
                 }
 
-                // exchange card
+                // Exchange card
                 $exchangeHand = new ExchangeHands($this, $players[$target]);
                 $this->showdown->addExchangeHands($exchangeHand);
                 $this->setExchangePermission(false);

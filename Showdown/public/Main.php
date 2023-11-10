@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Coord;
 use App\Deck;
 use App\Showdown;
 
