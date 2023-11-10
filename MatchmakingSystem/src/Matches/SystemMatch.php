@@ -1,9 +1,9 @@
 <?php
 
-namespace src\Matches;
+namespace App\Matches;
 
 use App\Individual;
-use src\Interfaces\Strategy;
+use App\Interfaces\Strategy;
 
 abstract class SystemMatch
 {

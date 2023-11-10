@@ -3,8 +3,7 @@
 namespace App;
 
 use App\Enums\GenderEnum;
-use src\Matches\ExchangeHands;
-use src\Strategies\Card;
+use InvalidArgumentException;
 
 class Individual
 {
@@ -12,23 +11,22 @@ class Individual
 
     private readonly GenderEnum $gender;
 
-    private readonly int $age;
+    private int $age;
 
     private string $intro;
 
-    private Habit $habits;
+    private array $habits;
 
-    private Coord $coord;
-
+    private Coordinate $coordinate;
 
     public function __construct(private readonly array $attribute)
     {
         $this->id = $attribute['id'] ?? 0;
-        $this->gender = $this->attribute['age'];
-        $this->age = $this->attribute['age'];
-        $this->intro = $this->attribute['intro'];
+        $this->gender = $this->attribute['gender'];
         $this->habits = $this->attribute['habits'] ?? [];
-        $this->coord = $this->attribute['coord'] ?? new Coord(0, 0);
+        $this->coordinate = $this->attribute['coordinate'] ?? new Coordinate(0, 0);
+        $this->setIntro($attribute['intro']);
+        $this->setAge($attribute['age']);
     }
 
     public function getId(): int
@@ -36,13 +34,51 @@ class Individual
         return $this->id;
     }
 
-    public function getHabits(): Habit
+    public function getHabit(): string
+    {
+        return implode(', ', array_map(fn ($habit) => $habit->getName(), $this->habits));
+    }
+
+    public function getHabits(): array
     {
         return $this->habits;
     }
 
-    public function getCoord(): Coord
+    public function getCoordinate(): Coordinate
     {
-        return $this->coord;
+        return $this->coordinate;
+    }
+
+    public function getGender(): GenderEnum
+    {
+        return $this->gender;
+    }
+
+    public function getIntro(): string
+    {
+        return $this->intro;
+    }
+
+    public function getAge(): int
+    {
+        return $this->age;
+    }
+
+    public function setIntro(string $intro): void
+    {
+        if (strlen($intro) > 200) {
+            throw new InvalidArgumentException('Intro must be less than 200 characters');
+        }
+
+        $this->intro = $intro;
+    }
+
+    public function setAge(int $age): void
+    {
+        if ($age < 18) {
+            throw new InvalidArgumentException('Age must be greater than 18');
+        }
+
+        $this->age = $age;
     }
 }

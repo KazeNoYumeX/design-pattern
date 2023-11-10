@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Coord
+class Coordinate
 {
     private readonly float $x;
 
@@ -17,5 +17,10 @@ class Coord
     public function getPosition(): array
     {
         return [$this->x, $this->y];
+    }
+
+    public function getPositionToString(): string
+    {
+        return sprintf('(%s, %s)', $this->x, $this->y);
     }
 }

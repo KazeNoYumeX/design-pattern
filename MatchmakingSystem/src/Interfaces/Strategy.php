@@ -1,8 +1,10 @@
 <?php
 
-namespace src\Interfaces;
+namespace App\Interfaces;
+
+use App\Individual;
 
 interface Strategy
 {
-    public function sortConditions(array $conditions): array;
+    public function sortConditions(Individual $individual, array $conditions): array;
 }
