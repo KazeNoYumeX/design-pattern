@@ -14,15 +14,15 @@ class MatchmakingSystem
         $this->individuals = $individuals;
     }
 
-    public function getIndividuals(): array
-    {
-        return $this->individuals;
-    }
-
     public function match(Individual $individual, SystemMatch $systemMatch, Strategy $strategy): Individual
     {
         $individuals = $this->getIndividuals();
 
         return $systemMatch->findBestMatch($individual, $individuals, $strategy);
+    }
+
+    public function getIndividuals(): array
+    {
+        return $this->individuals;
     }
 }

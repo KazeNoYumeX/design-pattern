@@ -59,11 +59,6 @@ class Individual
         return $this->intro;
     }
 
-    public function getAge(): int
-    {
-        return $this->age;
-    }
-
     public function setIntro(string $intro): void
     {
         if (strlen($intro) > 200) {
@@ -71,6 +66,11 @@ class Individual
         }
 
         $this->intro = $intro;
+    }
+
+    public function getAge(): int
+    {
+        return $this->age;
     }
 
     public function setAge(int $age): void

@@ -14,11 +14,6 @@ class HabitBasedStrategy implements Strategy
         $this->name = '興趣先決 (Habit-Based)';
     }
 
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
     public function sortConditions(Individual $individual, array $conditions): array
     {
         $habits = $individual->getHabits();
@@ -43,5 +38,10 @@ class HabitBasedStrategy implements Strategy
         });
 
         return $conditions;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 }
