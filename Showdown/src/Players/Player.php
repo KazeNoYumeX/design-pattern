@@ -30,6 +30,8 @@ abstract class Player
 
     abstract public function chooseAction(): void;
 
+    abstract public function nameHimself(): void;
+
     public function getPoint(): int
     {
         return $this->point;
