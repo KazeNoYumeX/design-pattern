@@ -5,16 +5,16 @@ import (
 )
 
 type Showdown struct {
-	players       []*players.AbstractPlayer
+	players       []players.Player
 	round         int
-	exchangeHands []*ExchangeHands
+	exchangeHands []ExchangeHands
 	deck          *Deck
 }
 
 func NewShowdown(deck *Deck) *Showdown {
 	return &Showdown{
 		deck:          deck,
-		exchangeHands: []*ExchangeHands{},
+		exchangeHands: []ExchangeHands{},
 	}
 }
 
@@ -24,7 +24,7 @@ func (s *Showdown) StartGame(numRealPlayers int, numAIPlayers int) {
 
 	playerNum := 1
 	for i := 0; i < numRealPlayers; i++ {
-		player := players.NewHumanPlayer(s)
+		player := players.NewHumanPlayer(s, i)
 		player.NameHimself()
 		s.AddPlayer(player)
 		playerNum++
@@ -59,7 +59,7 @@ func (s *Showdown) StartGame(numRealPlayers int, numAIPlayers int) {
 	s.StartRound()
 }
 
-func (s *Showdown) AddPlayer(player *player.Player) {
+func (s *Showdown) AddPlayer(player players.Player) {
 	s.players = append(s.players, player)
 }
 
@@ -150,14 +150,14 @@ func (s *Showdown) EndGame() {
 	}
 }
 
-func (s *Showdown) CompareScoreWithPlayers(players []*player.Player) []*player.Player {
+func (s *Showdown) CompareScoreWithPlayers(players []players.Player) []players.Player {
 	var playerPoints []int
 	for _, player := range players {
 		playerPoints = append(playerPoints, player.GetPoint())
 	}
 
 	// Winner may be more than one
-	var winners []*player.Player
+	var winners []players.Player
 	for _, player := range players {
 		if player.GetPoint() == max(playerPoints) {
 			winners = append(winners, player)
@@ -167,7 +167,7 @@ func (s *Showdown) CompareScoreWithPlayers(players []*player.Player) []*player.P
 	return winners
 }
 
-func (s *Showdown) GetPlayers() []*player.Player {
+func (s *Showdown) GetPlayers() []players.Player {
 	return s.players
 }
 

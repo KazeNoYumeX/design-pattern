@@ -5,11 +5,13 @@ import (
 )
 
 type Player interface {
+	GetID() int
+	SetID(id int)
 	ChooseAction()
 	NameHimself()
-	GetPoint()
+	GetPoint() int
 	GainPoint()
-	GetName()
+	GetName() string
 	SetName(name string)
 	GetHand() []*entity.Card
 	SetHand(card *entity.Card)
@@ -17,10 +19,11 @@ type Player interface {
 	GetShowedCard() *entity.Card
 	ShowCard(card *entity.Card)
 	SetExchangePermission(bool bool)
-	CheckChangeHands() *AbstractPlayer
+	CheckChangeHands() *Player
 }
 
 type AbstractPlayer struct {
+	ID                 int
 	Name               string
 	Hand               *entity.Hand
 	Point              int
@@ -29,11 +32,30 @@ type AbstractPlayer struct {
 	Showdown           entity.Showdown
 }
 
-func NewAbstractPlayer(showdown entity.Showdown) AbstractPlayer {
+func (p *AbstractPlayer) ChooseAction() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (p *AbstractPlayer) NameHimself() {
+	//TODO implement me
+	panic("implement me")
+}
+
+func NewAbstractPlayer(showdown entity.Showdown, id int) AbstractPlayer {
 	return AbstractPlayer{
+		ID:       id,
 		Hand:     entity.NewHand(),
 		Showdown: showdown,
 	}
+}
+
+func (p *AbstractPlayer) GetID() int {
+	return p.ID
+}
+
+func (p *AbstractPlayer) SetID(id int) {
+	p.ID = id
 }
 
 func (p *AbstractPlayer) GetPoint() int {
@@ -77,14 +99,15 @@ func (p *AbstractPlayer) SetExchangePermission(bool bool) {
 	p.ExchangePermission = bool
 }
 
-func (p *AbstractPlayer) CheckChangeHands() *AbstractPlayer {
-	targetPlayer := p
+func (p *AbstractPlayer) CheckChangeHands() *Player {
+	var targetPlayer Player
 
+	targetPlayer = p
 	exchangeHands := p.Showdown.GetExchangeHands()
 
 	if len(exchangeHands) != 0 {
 		for _, exchangeHand := range exchangeHands {
-			if exchangeHand.GetTrader() == targetPlayer {
+			if exchangeHand.GetTrader().GetID() == targetPlayer.GetID() {
 				targetPlayer = exchangeHand.GetCounterparty()
 			} else if exchangeHand.GetCounterparty() == targetPlayer {
 				targetPlayer = exchangeHand.GetTrader()

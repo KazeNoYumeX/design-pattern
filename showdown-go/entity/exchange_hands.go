@@ -4,11 +4,11 @@ import players "showdown-go/entity/player"
 
 type ExchangeHands struct {
 	Duration     int
-	Trader       *players.Player
-	Counterparty *players.Player
+	Trader       players.Player
+	Counterparty players.Player
 }
 
-func NewExchangeHands(trader *players.Player, counterparty *players.AbstractPlayer) *ExchangeHands {
+func NewExchangeHands(trader players.Player, counterparty players.Player) *ExchangeHands {
 	return &ExchangeHands{
 		Trader:       trader,
 		Counterparty: counterparty,
@@ -20,11 +20,11 @@ func (e *ExchangeHands) Countdown() {
 	e.Duration--
 }
 
-func (e *ExchangeHands) GetTrader() *player.Player {
+func (e *ExchangeHands) GetTrader() players.Player {
 	return e.Trader
 }
 
-func (e *ExchangeHands) GetCounterparty() *player.Player {
+func (e *ExchangeHands) GetCounterparty() players.Player {
 	return e.Counterparty
 }
 

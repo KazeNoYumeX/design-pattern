@@ -10,12 +10,9 @@ type HumanPlayer struct {
 	AbstractPlayer
 }
 
-func NewHumanPlayer(showdown *entity.Showdown) *HumanPlayer {
+func NewHumanPlayer(showdown *entity.Showdown, id int) *HumanPlayer {
 	return &HumanPlayer{
-		AbstractPlayer{
-			Hand:     entity.NewHand(),
-			Showdown: *showdown,
-		},
+		AbstractPlayer: NewAbstractPlayer(*showdown, id),
 	}
 }
 

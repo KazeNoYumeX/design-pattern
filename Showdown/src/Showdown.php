@@ -140,6 +140,18 @@ class Showdown
         $this->round > 13 ? $this->endGame() : $this->startRound();
     }
 
+    public function getExchangeHands(): array
+    {
+        return $this->exchangeHands;
+    }
+
+    public function removeExchangeHands(ExchangeHands $exchangeHands): void
+    {
+        $filtered = array_filter($this->exchangeHands,
+            fn ($exchangeHand) => $exchangeHand !== $exchangeHands);
+        $this->exchangeHands = array_values($filtered);
+    }
+
     private function endGame(): void
     {
         $winners = $this->compareScoreWithPlayers($this->players);
@@ -165,20 +177,8 @@ class Showdown
         return $this->players;
     }
 
-    public function getExchangeHands(): array
-    {
-        return $this->exchangeHands;
-    }
-
     public function addExchangeHands(ExchangeHands $exchangeHands): void
     {
         $this->exchangeHands[] = $exchangeHands;
-    }
-
-    public function removeExchangeHands(ExchangeHands $exchangeHands): void
-    {
-        $filtered = array_filter($this->exchangeHands,
-            fn ($exchangeHand) => $exchangeHand !== $exchangeHands);
-        $this->exchangeHands = array_values($filtered);
     }
 }
