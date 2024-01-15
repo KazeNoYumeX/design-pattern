@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Matches;
+namespace Showdown\Matches;
 
-use App\Individual;
-use App\Interfaces\Strategy;
+use Showdown\Individual;
+use Showdown\Interfaces\Strategy;
 
 class ReverseMatch extends SystemMatch
 {

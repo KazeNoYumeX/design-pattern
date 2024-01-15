@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Interfaces\Strategy;
-use App\Matches\SystemMatch;
+use Showdown\Interfaces\Strategy;
+use Showdown\Matches\SystemMatch;
 
 class MatchmakingSystem
 {

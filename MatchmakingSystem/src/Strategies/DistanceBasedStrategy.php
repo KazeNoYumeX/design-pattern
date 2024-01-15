@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Strategies;
+namespace Showdown\Strategies;
 
-use App\Individual;
-use App\Interfaces\Strategy;
+use Showdown\Individual;
+use Showdown\Interfaces\Strategy;
 
 class DistanceBasedStrategy implements Strategy
 {

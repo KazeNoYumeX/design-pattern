@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace Showdown;
 
-use App\Players\AIPlayer;
-use App\Players\HumanPlayer;
+use Showdown\Players\AIPlayer;
+use Showdown\Players\HumanPlayer;
 
 class Showdown
 {

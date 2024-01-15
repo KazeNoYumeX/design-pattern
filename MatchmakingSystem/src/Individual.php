@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Enums\GenderEnum;
 use InvalidArgumentException;
+use Showdown\Enums\GenderEnum;
 
 class Individual
 {

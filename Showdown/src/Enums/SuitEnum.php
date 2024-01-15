@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enums;
+namespace Showdown\Enums;
 
 enum SuitEnum: int
 {

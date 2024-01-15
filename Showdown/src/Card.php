@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace Showdown;
 
-use App\Enums\RankEnum;
-use App\Enums\SuitEnum;
+use Showdown\Enums\RankEnum;
+use Showdown\Enums\SuitEnum;
 
 class Card
 {

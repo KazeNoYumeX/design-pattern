@@ -1,12 +1,11 @@
 <?php
 
-use App\Coordinate;
-use App\Enums\GenderEnum;
-use App\Habit;
-use App\Individual;
-use App\Strategies\DistanceBasedStrategy;
-use App\Strategies\HabitBasedStrategy;
-
+use Showdown\Coordinate;
+use Showdown\Enums\GenderEnum;
+use Showdown\Habit;
+use Showdown\Individual;
+use Showdown\Strategies\DistanceBasedStrategy;
+use Showdown\Strategies\HabitBasedStrategy;
 use function Pest\Faker\fake;
 
 it('can sort by distance', function () {

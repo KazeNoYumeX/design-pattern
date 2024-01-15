@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace Showdown;
 
-use App\Players\Player;
+use Showdown\Players\Player;
 
 class ExchangeHands
 {

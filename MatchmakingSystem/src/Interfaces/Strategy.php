@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Interfaces;
+namespace Showdown\Interfaces;
 
-use App\Individual;
+use Showdown\Individual;
 
 interface Strategy
 {

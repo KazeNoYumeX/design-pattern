@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-use App\Coordinate;
-use App\Enums\GenderEnum;
-use App\Habit;
-use App\Individual;
-use App\Interfaces\Strategy;
-use App\Matches\ReverseMatch;
-use App\Matches\StandardMatch;
-use App\Matches\SystemMatch;
-use App\MatchmakingSystem;
-use App\Strategies\DistanceBasedStrategy;
-use App\Strategies\HabitBasedStrategy;
 use Faker\Factory;
+use Showdown\Coordinate;
+use Showdown\Enums\GenderEnum;
+use Showdown\Habit;
+use Showdown\Individual;
+use Showdown\Interfaces\Strategy;
+use Showdown\Matches\ReverseMatch;
+use Showdown\Matches\StandardMatch;
+use Showdown\Matches\SystemMatch;
+use Showdown\MatchmakingSystem;
+use Showdown\Strategies\DistanceBasedStrategy;
+use Showdown\Strategies\HabitBasedStrategy;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
 

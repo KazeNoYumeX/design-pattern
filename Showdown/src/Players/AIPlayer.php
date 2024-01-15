@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Players;
+namespace Showdown\Players;
 
-use App\ExchangeHands;
 use Faker\Factory;
+use Showdown\ExchangeHands;
 
 class AIPlayer extends Player
 {
