@@ -1,11 +1,12 @@
 <?php
 
-use Showdown\Enums\GenderEnum;
-use Showdown\Individual;
-use Showdown\Matches\ReverseMatch;
-use Showdown\Matches\StandardMatch;
-use Showdown\Strategies\DistanceBasedStrategy;
-use Showdown\Strategies\HabitBasedStrategy;
+use MatchmakingSystem\Enums\GenderEnum;
+use MatchmakingSystem\Individual;
+use MatchmakingSystem\Matches\ReverseMatch;
+use MatchmakingSystem\Matches\StandardMatch;
+use MatchmakingSystem\Strategies\DistanceBasedStrategy;
+use MatchmakingSystem\Strategies\HabitBasedStrategy;
+
 use function Pest\Faker\fake;
 
 it('can return the first individual after sorting by StandardMatch', function () {

@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace MatchmakingSystem;
 
 use InvalidArgumentException;
-use Showdown\Enums\GenderEnum;
+use MatchmakingSystem\Enums\GenderEnum;
 
 class Individual
 {

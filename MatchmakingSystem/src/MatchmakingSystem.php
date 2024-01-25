@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace MatchmakingSystem;
 
-use Showdown\Interfaces\Strategy;
-use Showdown\Matches\SystemMatch;
+use MatchmakingSystem\Interfaces\Strategy;
+use MatchmakingSystem\Matches\SystemMatch;
 
 class MatchmakingSystem
 {

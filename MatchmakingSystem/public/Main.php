@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 use Faker\Factory;
-use Showdown\Coordinate;
-use Showdown\Enums\GenderEnum;
-use Showdown\Habit;
-use Showdown\Individual;
-use Showdown\Interfaces\Strategy;
-use Showdown\Matches\ReverseMatch;
-use Showdown\Matches\StandardMatch;
-use Showdown\Matches\SystemMatch;
-use Showdown\MatchmakingSystem;
-use Showdown\Strategies\DistanceBasedStrategy;
-use Showdown\Strategies\HabitBasedStrategy;
+use MatchmakingSystem\Coordinate;
+use MatchmakingSystem\Enums\GenderEnum;
+use MatchmakingSystem\Habit;
+use MatchmakingSystem\Individual;
+use MatchmakingSystem\Interfaces\Strategy;
+use MatchmakingSystem\Matches\ReverseMatch;
+use MatchmakingSystem\Matches\StandardMatch;
+use MatchmakingSystem\Matches\SystemMatch;
+use MatchmakingSystem\MatchmakingSystem;
+use MatchmakingSystem\Strategies\DistanceBasedStrategy;
+use MatchmakingSystem\Strategies\HabitBasedStrategy;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
 
@@ -69,7 +69,7 @@ function generateIndividual(int $id): Individual
     return new Individual($attribute);
 }
 
-function choseMatchmakingSystem(SystemMatch $match = null): SystemMatch
+function choseMatchmakingSystem(?SystemMatch $match = null): SystemMatch
 {
     if ($match) {
         return $match;
@@ -85,7 +85,7 @@ function choseMatchmakingSystem(SystemMatch $match = null): SystemMatch
     return $faker->randomElement($systems);
 }
 
-function choseStrategy(Strategy $strategy = null): Strategy
+function choseStrategy(?Strategy $strategy = null): Strategy
 {
     if ($strategy) {
         return $strategy;

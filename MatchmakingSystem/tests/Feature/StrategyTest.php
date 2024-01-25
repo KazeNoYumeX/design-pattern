@@ -1,11 +1,12 @@
 <?php
 
-use Showdown\Coordinate;
-use Showdown\Enums\GenderEnum;
-use Showdown\Habit;
-use Showdown\Individual;
-use Showdown\Strategies\DistanceBasedStrategy;
-use Showdown\Strategies\HabitBasedStrategy;
+use MatchmakingSystem\Coordinate;
+use MatchmakingSystem\Enums\GenderEnum;
+use MatchmakingSystem\Habit;
+use MatchmakingSystem\Individual;
+use MatchmakingSystem\Strategies\DistanceBasedStrategy;
+use MatchmakingSystem\Strategies\HabitBasedStrategy;
+
 use function Pest\Faker\fake;
 
 it('can sort by distance', function () {

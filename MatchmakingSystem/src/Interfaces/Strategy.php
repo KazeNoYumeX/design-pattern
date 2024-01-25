@@ -1,8 +1,8 @@
 <?php
 
-namespace Showdown\Interfaces;
+namespace MatchmakingSystem\Interfaces;
 
-use Showdown\Individual;
+use MatchmakingSystem\Individual;
 
 interface Strategy
 {

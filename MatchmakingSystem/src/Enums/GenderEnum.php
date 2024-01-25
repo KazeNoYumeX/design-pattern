@@ -1,6 +1,6 @@
 <?php
 
-namespace Showdown\Enums;
+namespace MatchmakingSystem\Enums;
 
 enum GenderEnum: int
 {
