@@ -4,7 +4,7 @@
 
 The following are required to function properly.
 
-* PHP Version：PHP 8.1.x
+* PHP Version：PHP 8.2.x
 
 ### Composer install
 
