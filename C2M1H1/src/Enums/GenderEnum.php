@@ -1,6 +1,6 @@
 <?php
 
-namespace MatchmakingSystem\Enums;
+namespace C2M1H1\Enums;
 
 enum GenderEnum: int
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace MatchmakingSystem;
+namespace C2M1H1;
 
 class Coordinate
 {

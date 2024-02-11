@@ -1,8 +1,8 @@
 <?php
 
-namespace MatchmakingSystem\Interfaces;
+namespace C2M1H1\Interfaces;
 
-use MatchmakingSystem\Individual;
+use C2M1H1\Individual;
 
 interface Strategy
 {

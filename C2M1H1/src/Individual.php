@@ -1,9 +1,9 @@
 <?php
 
-namespace MatchmakingSystem;
+namespace C2M1H1;
 
 use InvalidArgumentException;
-use MatchmakingSystem\Enums\GenderEnum;
+use C2M1H1\Enums\GenderEnum;
 
 class Individual
 {

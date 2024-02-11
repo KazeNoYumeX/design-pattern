@@ -1,11 +1,11 @@
 <?php
 
-use MatchmakingSystem\Coordinate;
-use MatchmakingSystem\Enums\GenderEnum;
-use MatchmakingSystem\Habit;
-use MatchmakingSystem\Individual;
-use MatchmakingSystem\Strategies\DistanceBasedStrategy;
-use MatchmakingSystem\Strategies\HabitBasedStrategy;
+use C2M1H1\Coordinate;
+use C2M1H1\Enums\GenderEnum;
+use C2M1H1\Habit;
+use C2M1H1\Individual;
+use C2M1H1\Strategies\DistanceBasedStrategy;
+use C2M1H1\Strategies\HabitBasedStrategy;
 
 use function Pest\Faker\fake;
 

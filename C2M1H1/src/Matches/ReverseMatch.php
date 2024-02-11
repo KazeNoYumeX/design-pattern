@@ -1,17 +1,17 @@
 <?php
 
-namespace MatchmakingSystem\Matches;
+namespace C2M1H1\Matches;
 
-use MatchmakingSystem\Individual;
-use MatchmakingSystem\Interfaces\Strategy;
+use C2M1H1\Individual;
+use C2M1H1\Interfaces\Strategy;
 
-class StandardMatch extends SystemMatch
+class ReverseMatch extends SystemMatch
 {
     private readonly string $name;
 
     public function __construct()
     {
-        $this->name = 'Standard Match';
+        $this->name = 'Reverse Match';
     }
 
     public function getName(): string
@@ -25,6 +25,7 @@ class StandardMatch extends SystemMatch
         $individuals = array_filter($individuals, fn ($i) => $i->getId() !== $individual->getId());
 
         $sortedIndividuals = $strategy->sortConditions($individual, $individuals);
+        $sortedIndividuals = $this->reverse($sortedIndividuals);
 
         return $sortedIndividuals[0];
     }

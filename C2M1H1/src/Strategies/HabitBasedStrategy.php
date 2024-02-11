@@ -1,9 +1,9 @@
 <?php
 
-namespace MatchmakingSystem\Strategies;
+namespace C2M1H1\Strategies;
 
-use MatchmakingSystem\Individual;
-use MatchmakingSystem\Interfaces\Strategy;
+use C2M1H1\Individual;
+use C2M1H1\Interfaces\Strategy;
 
 class HabitBasedStrategy implements Strategy
 {

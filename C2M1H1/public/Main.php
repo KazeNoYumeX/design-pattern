@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 use Faker\Factory;
-use MatchmakingSystem\Coordinate;
-use MatchmakingSystem\Enums\GenderEnum;
-use MatchmakingSystem\Habit;
-use MatchmakingSystem\Individual;
-use MatchmakingSystem\Interfaces\Strategy;
-use MatchmakingSystem\Matches\ReverseMatch;
-use MatchmakingSystem\Matches\StandardMatch;
-use MatchmakingSystem\Matches\SystemMatch;
-use MatchmakingSystem\MatchmakingSystem;
-use MatchmakingSystem\Strategies\DistanceBasedStrategy;
-use MatchmakingSystem\Strategies\HabitBasedStrategy;
+use C2M1H1\Coordinate;
+use C2M1H1\Enums\GenderEnum;
+use C2M1H1\Habit;
+use C2M1H1\Individual;
+use C2M1H1\Interfaces\Strategy;
+use C2M1H1\Matches\ReverseMatch;
+use C2M1H1\Matches\StandardMatch;
+use C2M1H1\Matches\SystemMatch;
+use C2M1H1\MatchmakingSystem;
+use C2M1H1\Strategies\DistanceBasedStrategy;
+use C2M1H1\Strategies\HabitBasedStrategy;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
 

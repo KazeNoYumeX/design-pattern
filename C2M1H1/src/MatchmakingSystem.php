@@ -1,9 +1,9 @@
 <?php
 
-namespace MatchmakingSystem;
+namespace C2M1H1;
 
-use MatchmakingSystem\Interfaces\Strategy;
-use MatchmakingSystem\Matches\SystemMatch;
+use C2M1H1\Interfaces\Strategy;
+use C2M1H1\Matches\SystemMatch;
 
 class MatchmakingSystem
 {
