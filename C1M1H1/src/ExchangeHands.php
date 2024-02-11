@@ -1,8 +1,8 @@
 <?php
 
-namespace Showdown;
+namespace C1M1H1;
 
-use Showdown\Players\Player;
+use C1M1H1\Players\Player;
 
 class ExchangeHands
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Showdown\Players;
+namespace C1M1H1\Players;
 
-use Showdown\Card;
-use Showdown\Deck;
-use Showdown\ExchangeHands;
-use Showdown\Hand;
-use Showdown\Showdown;
+use C1M1H1\Card;
+use C1M1H1\Deck;
+use C1M1H1\ExchangeHands;
+use C1M1H1\Hand;
+use C1M1H1\Showdown;
 
 abstract class Player
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Showdown;
+namespace C1M1H1;
 
-use Showdown\Players\AIPlayer;
-use Showdown\Players\HumanPlayer;
+use C1M1H1\Players\AIPlayer;
+use C1M1H1\Players\HumanPlayer;
 
 class Showdown
 {

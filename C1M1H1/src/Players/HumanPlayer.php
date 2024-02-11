@@ -1,9 +1,9 @@
 <?php
 
-namespace Showdown\Players;
+namespace C1M1H1\Players;
 
-use Showdown\Card;
-use Showdown\ExchangeHands;
+use C1M1H1\Card;
+use C1M1H1\ExchangeHands;
 
 class HumanPlayer extends Player
 {

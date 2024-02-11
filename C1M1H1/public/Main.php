@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Showdown\Deck;
-use Showdown\Showdown;
+use C1M1H1\Deck;
+use C1M1H1\Showdown;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
 

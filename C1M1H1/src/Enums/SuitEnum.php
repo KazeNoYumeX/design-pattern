@@ -1,6 +1,6 @@
 <?php
 
-namespace Showdown\Enums;
+namespace C1M1H1\Enums;
 
 enum SuitEnum: int
 {
