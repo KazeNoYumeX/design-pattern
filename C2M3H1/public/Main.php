@@ -67,7 +67,7 @@ $world = new World($coordinates, $handlers);
 echo "\nInitial ";
 $world->showMap();
 
-// Move the sprite 10 times
+// Move the sprite 10 times, which can be modified to an infinite loop if needed
 for ($i = 0; $i < 10; $i++) {
     echo "\nRound $i\n";
 
