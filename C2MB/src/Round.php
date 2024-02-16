@@ -1,12 +1,17 @@
 <?php
 
-namespace C2MB\Turns;
+namespace C2MB;
 
-use C2MB\Cards\PokerCard;
-use C2MB\Players\PokerPlayer;
+use C2MB\Cards\Card;
+use C2MB\Games\BigTwo;
+use C2MB\Players\Player;
 
-class PokerTurn extends Turn
+class Round
 {
+    private BigTwo $game;
+
+    private int $num = 0;
+
     public function init(): void
     {
         $game = $this->getGame();
@@ -32,7 +37,7 @@ class PokerTurn extends Turn
 
         // Each player plays to choose an action
         foreach ($players as $player) {
-            /** @var PokerPlayer $player */
+            /** @var Player $player */
             $player->takeTurn();
         }
 
@@ -48,7 +53,7 @@ class PokerTurn extends Turn
         $max = null;
 
         foreach ($players as $index => $player) {
-            /** @var PokerCard $card */
+            /** @var Card $card */
             $card = $player->getShowedCard();
 
             if (empty($max)) {
@@ -75,7 +80,7 @@ class PokerTurn extends Turn
         $suit = $max->getSuit()->toCardString();
         $rank = $max->getRank()->toCardString();
 
-        /** @var PokerPlayer $winner */
+        /** @var Player $winner */
         $winner = $players[$maxIndex];
         $winner->gainPoint();
 
@@ -96,5 +101,32 @@ class PokerTurn extends Turn
         } else {
             $this->start();
         }
+    }
+    public function getGame(): BigTwo
+    {
+        return $this->game;
+    }
+
+    public function setGame(BigTwo $game): void
+    {
+        $this->game = $game;
+    }
+
+    public function addTurn(): int
+    {
+        $turn = $this->getNum() + 1;
+        $this->setNum($turn);
+
+        return $turn;
+    }
+
+    public function getNum(): int
+    {
+        return $this->num;
+    }
+
+    public function setNum(int $num): void
+    {
+        $this->num = $num;
     }
 }

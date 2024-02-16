@@ -2,11 +2,10 @@
 
 namespace C2MB\Players;
 
-use C2MB\ActionStrategies\ActionStrategy;
 use C2MB\Cards\Card;
 use C2MB\Deck;
 use C2MB\Field;
-use C2MB\Games\Game;
+use C2MB\Games\BigTwo;
 use C2MB\Hand;
 
 abstract class Player
@@ -16,24 +15,19 @@ abstract class Player
     protected Hand $hand;
 
     public function __construct(
-        private readonly Game $game,
-        protected readonly ActionStrategy $strategy
+        private readonly BigTwo $game,
     ) {
         $this->hand = new Hand();
     }
 
-    abstract public function takeTurn(): void;
-
-    abstract public function getHandActions(): array;
-
-    public function getGame(): Game
+    public function getGame(): BigTwo
     {
         return $this->game;
     }
 
     public function nameHimself(): void
     {
-        $name = $this->strategy->generateName();
+        $name = $this->generateName();
         $this->setName($name);
     }
 
@@ -89,5 +83,36 @@ abstract class Player
     public function takeAction(array $actions): int
     {
         return $this->strategy->takeAction($actions);
+    }
+
+    public function takeTurn(): void
+    {
+        echo "{$this->getName()} 請選擇要出的手牌: ";
+        $actions = $this->getHandActions();
+        $targetCard = $this->takeAction($actions);
+
+        if (empty($this->hand->cards[$targetCard])) {
+            echo "輸入錯誤, 請重新輸入\n";
+            $this->takeTurn();
+        } else {
+            $card = $this->hand->cards[$targetCard];
+
+            // Show card and
+            $this->showCard($card);
+        }
+    }
+
+    public function getHandActions(): array
+    {
+        $actions = [];
+
+        foreach ($this->getHand() as $index => $card) {
+            /** @var Card $card */
+            echo "[$index] {$card->getSuit()->toCardString()} {$card->getRank()->toCardString()} ";
+            $actions[] = "{$card->getSuit()->toCardString()} {$card->getRank()->toCardString()}";
+        }
+        echo "\n";
+
+        return $actions;
     }
 }

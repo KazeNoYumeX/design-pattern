@@ -14,11 +14,6 @@ class Deck
         $this->cards = $cards;
     }
 
-    public function setCards(array $cards): void
-    {
-        $this->cards = $cards;
-    }
-
     public function shuffle(): void
     {
         shuffle($this->cards);
@@ -27,18 +22,6 @@ class Deck
     public function draw(): ?Card
     {
         return array_pop($this->cards);
-    }
-
-    public function recycle(Field $field): void
-    {
-        $cards = $field->getCards();
-
-        // Reset the field cards to deck, and shuffle
-        $this->setCards(array_merge($this->cards, $cards));
-        $this->shuffle();
-
-        // Reset the field card to null
-        $field->setCards([]);
     }
 
     public function distributeCards(array $players, int $num = 0): void
