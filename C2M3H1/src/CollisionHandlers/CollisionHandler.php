@@ -21,6 +21,19 @@ abstract readonly class CollisionHandler
         }
     }
 
+    protected function assignSprites(Sprite $former, Sprite $latter, string $spriteClass): array
+    {
+        $firstSprite = $former;
+        $secondSprite = $latter;
+
+        if (! $firstSprite instanceof $spriteClass) {
+            $firstSprite = $latter;
+            $secondSprite = $former;
+        }
+
+        return [$firstSprite, $secondSprite];
+    }
+
     abstract public function match(Sprite $former, Sprite $latter): bool;
 
     abstract public function handleCollision(Sprite $former, Sprite $latter): void;

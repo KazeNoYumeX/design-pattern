@@ -18,13 +18,8 @@ readonly class HeroFireCollisionHandler extends CollisionHandler
     {
         echo "{$former->getSymbol()} and {$latter->getSymbol()} collision, fire removed and hero damaged\n";
 
-        $hero = $former;
-        $fire = $latter;
-
-        if (! $hero instanceof HeroSprite) {
-            $hero = $latter;
-            $fire = $former;
-        }
+        /** @var HeroSprite $hero  */
+        [$hero, $fire] = $this->assignSprites($former, $latter, HeroSprite::class);
 
         $fire->remove();
         $alive = $hero->damage();
