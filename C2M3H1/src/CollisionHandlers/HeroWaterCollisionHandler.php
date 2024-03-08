@@ -18,13 +18,8 @@ readonly class HeroWaterCollisionHandler extends CollisionHandler
     {
         echo "{$former->getSymbol()} and {$latter->getSymbol()} collision, water removed and hero healed\n";
 
-        $hero = $former;
-        $water = $latter;
-
-        if (! $hero instanceof HeroSprite) {
-            $hero = $latter;
-            $water = $former;
-        }
+        /** @var HeroSprite $hero  */
+        [$hero, $water] = $this->assignSprites($former, $latter, HeroSprite::class);
 
         $hero->heal();
         $water->remove();
