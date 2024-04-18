@@ -2,17 +2,17 @@
 
 namespace C3M3H1\Commands;
 
-use C3M3H1\MainController;
+use C3M3H1\Game;
 use SplStack;
 
 /**
- * @property MainController $receiver
+ * @property Game $receiver
  */
 class KeyboardResetCommand extends Command
 {
     private SplStack $executed;
 
-    public function __construct(MainController $receiver)
+    public function __construct(Game $receiver)
     {
         parent::__construct($receiver);
         $this->executed = new SplStack();
@@ -20,7 +20,7 @@ class KeyboardResetCommand extends Command
 
     public function execute(): void
     {
-        $keyboard = $this->receiver->getKeyboard();
+        $keyboard = $this->receiver->getMap();
         $this->executed->push(clone $keyboard);
 
         $keyboard->reset();
@@ -34,7 +34,7 @@ class KeyboardResetCommand extends Command
         }
 
         $keyboard = $this->executed->pop();
-        $this->receiver->setKeyboard($keyboard);
+        $this->receiver->setMap($keyboard);
 
         echo 'Undo the keyboard reset.'.PHP_EOL;
     }
