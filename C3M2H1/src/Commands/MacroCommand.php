@@ -4,12 +4,9 @@ namespace C3M2H1\Commands;
 
 class MacroCommand extends Command
 {
-    private array $commands;
-
     public function __construct(array $commands)
     {
-        parent::__construct(null);
-        $this->commands = $commands;
+        parent::__construct($commands);
     }
 
     private function command(array $commands, string $method): void
@@ -24,12 +21,12 @@ class MacroCommand extends Command
 
     public function execute(): void
     {
-        $this->command($this->commands, 'execute');
+        $this->command($this->receiver, 'execute');
     }
 
     public function undo(): void
     {
-        $commands = array_reverse($this->commands);
+        $commands = array_reverse($this->receiver);
         $this->command($commands, 'undo');
     }
 }
