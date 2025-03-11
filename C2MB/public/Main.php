@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
+use C2MB\BigTwo;
 use C2MB\Cards\Card;
 use C2MB\Deck;
-use C2MB\Games\BigTwo;
 use C2MB\Players\AIPlayer;
 use C2MB\Players\HumanPlayer;
 

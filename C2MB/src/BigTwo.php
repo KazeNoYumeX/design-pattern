@@ -1,11 +1,8 @@
 <?php
 
-namespace C2MB\Games;
+namespace C2MB;
 
-use C2MB\Deck;
-use C2MB\Field;
 use C2MB\Players\Player;
-use C2MB\Round;
 
 class BigTwo
 {

@@ -3,7 +3,6 @@
 namespace C2MB;
 
 use C2MB\Cards\Card;
-use C2MB\Games\BigTwo;
 use C2MB\Players\Player;
 
 class Round

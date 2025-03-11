@@ -2,10 +2,10 @@
 
 namespace C2MB\Players;
 
+use C2MB\BigTwo;
 use C2MB\Cards\Card;
 use C2MB\Deck;
 use C2MB\Field;
-use C2MB\Games\BigTwo;
 use C2MB\Hand;
 
 abstract class Player
