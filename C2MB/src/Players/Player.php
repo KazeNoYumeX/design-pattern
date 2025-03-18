@@ -4,6 +4,7 @@ namespace C2MB\Players;
 
 use C2MB\BigTwo;
 use C2MB\Cards\Card;
+use C2MB\Cards\CardPatterns\CardPattern;
 use C2MB\Deck;
 use C2MB\Field;
 use C2MB\Hand;
@@ -87,7 +88,25 @@ abstract class Player
 
     public function takeTurn(): void
     {
+        // pass or take action
+
+        // 如果出牌
+        echo "{$this->getName()} 請選擇要出的手牌: ";
+        $actions = $this->getHandActions();
+        $targetCards = $this->takeAction($actions);
+
+        $game = $this->getGame();
+        $cardPattern = $game->validate($targetCards);
+
+        if (! $cardPattern instanceof CardPattern){
+            // 無效的牌型，請重來
+        }
+
         // 取得 field 狀態
+        $field = $game->getField();
+        if (! $field->validateTopPlay($cardPattern)){
+            // 無法出牌，請重來
+        }
 
         //
         echo "{$this->getName()} 請選擇要出的手牌: ";
