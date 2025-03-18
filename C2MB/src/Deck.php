@@ -37,12 +37,12 @@ class Deck
 
     public function recycle(Field $field): void
     {
-        $cards = $field->getCards();
+        $cards = $field->getTopPlay();
 
         // Recycle the field cards to the deck
         $this->cards = array_merge($this->cards, $cards);
 
         // Clear the field cards
-        $field->setCards([]);
+        $field->setTopPlay([]);
     }
 }

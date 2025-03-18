@@ -30,15 +30,14 @@ readonly class Card
 
     public function compare(Card $card): bool
     {
-        if ($card->getRank()->value > $this->getRank()->value) {
+        $rank = $this->getRank();
+        if ($rank->compare($otherRank = $card->getRank())) {
             return true;
-        } elseif ($card->getRank()->value == $this->getRank()->value) {
-            if ($card->getSuit()->value > $this->getSuit()->value) {
-                return true;
-            }
         }
 
-        return false;
+        $suit = $this->getSuit();
+
+        return $rank === $otherRank && $suit->compare($card->getSuit());
     }
 
     public function getRank(): RankEnum

@@ -36,4 +36,9 @@ enum RankEnum: int
             self::KING => 'K',
         };
     }
+
+    public function compare(RankEnum $rank): bool
+    {
+        return $this->value > $rank->value;
+    }
 }

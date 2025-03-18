@@ -39,21 +39,32 @@ class Round
         // Each player plays to choose an action
         $passed = 0;
         $field = $game->getField();
+        $length = count($players);
 
-        while (true) {
+        while ($passed === $length - 1) {
+            $topPlay = $field->getTopPlay();
+
             foreach ($players as $player) {
+                // Find the first player
+                if (empty($topCards)) {
+                    if (! $field->playable($player)) {
+                        continue;
+                    }
+                }
 
+                /** @var Player $player */
+                $cards = $player->takeTurn();
+                if (! empty($cards)) {
+                    $passed++;
+                }
             }
-        }
-
-        foreach ($players as $player) {
-            /** @var Player $player */
-            $player->takeTurn();
         }
 
         $this->getWinner();
         $this->end();
     }
+
+    public function validate(Field $field, Player $player): bool {}
 
     public function getWinner(): void
     {

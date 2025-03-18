@@ -18,4 +18,9 @@ enum SuitEnum: int
             self::SPADE => '♠',
         };
     }
+
+    public function compare(SuitEnum $suit): bool
+    {
+        return $this->value > $suit->value;
+    }
 }

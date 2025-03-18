@@ -87,6 +87,9 @@ abstract class Player
 
     public function takeTurn(): void
     {
+        // 取得 field 狀態
+
+        //
         echo "{$this->getName()} 請選擇要出的手牌: ";
         $actions = $this->getHandActions();
         $targetCard = $this->takeAction($actions);
